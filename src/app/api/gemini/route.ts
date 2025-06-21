@@ -1,7 +1,7 @@
 import { GoogleGenerativeAI } from '@google/generative-ai'
 import { NextRequest, NextResponse } from 'next/server'
 
-const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY || '')
+const genAI = new GoogleGenerativeAI(process.env.NEXT_PUBLIC_GEMINI_API_KEY || '')
 
 // Portfolio context for the AI
 const PORTFOLIO_CONTEXT = `You are Abdullah's witty AI sidekick on his portfolio website. You know all about his work and aren't afraid to show some personality! Here's the scoop on Abdullah:
@@ -104,7 +104,7 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    if (!process.env.GEMINI_API_KEY) {
+    if (!process.env.NEXT_PUBLIC_GEMINI_API_KEY) {
       return NextResponse.json(
         { 
           response: "I'm currently unavailable. Please contact Abdullah directly at abdullahtalal1122@gmail.com or check out his projects on GitHub!" 
